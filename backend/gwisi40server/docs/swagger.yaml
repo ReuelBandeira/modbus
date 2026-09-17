@@ -1,0 +1,1417 @@
+definitions:
+  models.Configurations:
+    properties:
+      address:
+        type: string
+      devices:
+        type: string
+      id:
+        type: integer
+      name:
+        type: string
+      port:
+        type: string
+      protocol:
+        type: string
+      readingTime:
+        type: integer
+      topics:
+        type: string
+      version:
+        type: integer
+    type: object
+  models.DataVersion:
+    properties:
+      data-type:
+        type: string
+      version:
+        type: integer
+    type: object
+  models.Device:
+    properties:
+      address:
+        type: integer
+      attribute:
+        type: integer
+      class:
+        type: integer
+      id:
+        type: integer
+      instance:
+        type: integer
+      memoryBlock:
+        type: integer
+      name:
+        type: string
+      plc:
+        $ref: '#/definitions/models.PLC'
+      protocol:
+        $ref: '#/definitions/models.Protocol'
+      type:
+        $ref: '#/definitions/models.Type'
+    type: object
+  models.Language:
+    properties:
+      id:
+        type: integer
+      language:
+        type: string
+    type: object
+  models.Logfile:
+    properties:
+      date:
+        type: string
+      id:
+        type: integer
+      name:
+        type: string
+      time:
+        type: string
+    type: object
+  models.Login:
+    properties:
+      email:
+        type: string
+      password:
+        type: string
+    type: object
+  models.MQTTSettings:
+    properties:
+      connected:
+        type: boolean
+      errorInfo:
+        type: string
+      inputInfo:
+        type: string
+      password:
+        type: string
+      port:
+        type: string
+      server:
+        type: string
+      statusDevice:
+        type: string
+      username:
+        type: string
+    type: object
+  models.PLC:
+    properties:
+      id:
+        type: integer
+      name:
+        type: string
+    type: object
+  models.Protocol:
+    properties:
+      alias:
+        type: string
+      config:
+        type: string
+      id:
+        type: integer
+      md5:
+        type: string
+      protocol:
+        type: string
+      version:
+        type: integer
+    type: object
+  models.Resources:
+    properties:
+      connectedDevices:
+        type: string
+      diskUsage:
+        type: number
+      memoryUsage:
+        type: number
+    type: object
+  models.Server:
+    properties:
+      id:
+        type: integer
+      ip:
+        type: string
+      name:
+        type: string
+      port:
+        type: integer
+      protocol:
+        $ref: '#/definitions/models.Protocol'
+    type: object
+  models.Token:
+    properties:
+      token:
+        type: string
+    type: object
+  models.Type:
+    properties:
+      id:
+        type: integer
+      type:
+        type: string
+    type: object
+  models.User:
+    properties:
+      email:
+        type: string
+      id:
+        type: integer
+      language:
+        type: string
+      name:
+        type: string
+      password:
+        items:
+          type: integer
+        type: array
+    type: object
+  modelsswagger.Device:
+    properties:
+      address:
+        type: string
+      attribute:
+        type: string
+      class:
+        type: string
+      instance:
+        type: string
+      memoryBlock:
+        type: string
+      name:
+        type: string
+      plcid:
+        type: string
+      protocolID:
+        type: string
+      typeID:
+        type: string
+    type: object
+  modelsswagger.PLC:
+    properties:
+      name:
+        type: string
+    type: object
+  modelsswagger.Protocol:
+    properties:
+      protocol:
+        type: string
+    type: object
+  modelsswagger.Server:
+    properties:
+      ip:
+        type: string
+      name:
+        type: string
+      port:
+        type: string
+      protocolID:
+        type: string
+    type: object
+  modelsswagger.Type:
+    properties:
+      type:
+        type: string
+    type: object
+info:
+  contact:
+    name: ICTS
+    url: http://www.grupoicts.com.br
+  description: ISI 4.0 server API
+  license:
+    name: Proprietary
+  title: ISI 4.0 server API
+  version: "1.0"
+paths:
+  /api/v1/condifgurations/{id}:
+    patch:
+      description: Updates a configuration
+      parameters:
+      - description: Authentication header
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      - description: Device ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.Configurations'
+        "401":
+          description: Request not authorized
+        "422":
+          description: Unprocessable Entity
+          schema:
+            type: Cannot
+      summary: Updates a configuration
+      tags:
+      - Configurations
+  /api/v1/configurationbyprotocol/{protocol}:
+    get:
+      consumes:
+      - application/json
+      description: Get all Configurations
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.Configurations'
+        "401":
+          description: Request not authorized
+        "404":
+          description: Not Found
+          schema:
+            type: "No"
+      tags:
+      - Configurations
+  /api/v1/configurationcount:
+    get:
+      consumes:
+      - application/json
+      description: Get device count
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.Configurations'
+      summary: Get device count
+      tags:
+      - Configurations
+  /api/v1/configurations:
+    get:
+      consumes:
+      - application/json
+      description: Get all Configurations
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.Configurations'
+        "401":
+          description: Request not authorized
+        "404":
+          description: Not Found
+          schema:
+            type: "No"
+      tags:
+      - Configurations
+    post:
+      consumes:
+      - application/json
+      description: Creates a Configurations
+      parameters:
+      - description: Authentication header
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      - description: Add Configurations
+        in: body
+        name: type
+        required: true
+        schema:
+          $ref: '#/definitions/models.Configurations'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.Configurations'
+        "400":
+          description: Bad Request
+          schema:
+            type: Missing
+        "401":
+          description: Request not authorized
+      tags:
+      - Configurations
+  /api/v1/configurations/{id}:
+    delete:
+      description: Deletes a configuration
+      parameters:
+      - description: Authentication header
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      - description: Device ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.Configurations'
+        "401":
+          description: Request not authorized
+        "422":
+          description: Unprocessable Entity
+          schema:
+            type: Cannot
+      summary: Deletes a configuration
+      tags:
+      - Configurations
+  /api/v1/configurationwithid:
+    get:
+      consumes:
+      - application/json
+      description: Get all Configurations with ID
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.Configurations'
+        "404":
+          description: Not Found
+          schema:
+            type: "No"
+      tags:
+      - Configurations
+  /api/v1/device:
+    post:
+      consumes:
+      - application/json
+      description: Creates a device
+      parameters:
+      - description: Authentication header
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      - description: Add device
+        in: body
+        name: type
+        required: true
+        schema:
+          $ref: '#/definitions/modelsswagger.Device'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.Device'
+        "400":
+          description: Bad Request
+          schema:
+            type: Missing
+        "401":
+          description: Request not authorized
+        "404":
+          description: "No\t\tprotocol, type or PLC found or invalid values for name,
+            port, memory block, class, instance or attribute"
+      summary: Creates a device
+      tags:
+      - Devices
+  /api/v1/device/{id}:
+    delete:
+      description: Deletes a device
+      parameters:
+      - description: Authentication header
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      - description: Device ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.Device'
+        "401":
+          description: Request not authorized
+        "422":
+          description: Unprocessable Entity
+          schema:
+            type: Cannot
+      summary: Deletes a device
+      tags:
+      - Devices
+    get:
+      consumes:
+      - application/json
+      description: Get device by ID
+      parameters:
+      - description: Authentication header
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      - description: Device ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.Device'
+        "401":
+          description: Request not authorized
+        "404":
+          description: "No\t\t\tdevice found"
+      summary: Get device by ID
+      tags:
+      - Devices
+  /api/v1/deviceinfo:
+    get:
+      consumes:
+      - application/json
+      description: Get device count
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.Configurations'
+      summary: Get device count
+      tags:
+      - Configurations
+  /api/v1/devices:
+    get:
+      consumes:
+      - application/json
+      description: Get all devices
+      parameters:
+      - description: Authentication header
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.Device'
+        "401":
+          description: Request not authorized
+        "404":
+          description: "No\tdevices\tfound"
+      security:
+      - BasicAuth: []
+      summary: Get all devices
+      tags:
+      - Devices
+  /api/v1/language:
+    get:
+      description: Get all language
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.Language'
+        "401":
+          description: Request not authorized
+        "404":
+          description: Not Found
+          schema:
+            type: "No"
+      tags:
+      - language
+  /api/v1/logfile/{id}:
+    get:
+      description: Download a log file
+      responses: {}
+      summary: Download a log file
+      tags:
+      - Logs
+  /api/v1/logfiles:
+    get:
+      description: Download all log files
+      responses: {}
+      summary: Download all log files
+      tags:
+      - Logs
+  /api/v1/login:
+    post:
+      consumes:
+      - application/json
+      description: Login
+      parameters:
+      - description: Login credentials
+        in: body
+        name: type
+        required: true
+        schema:
+          $ref: '#/definitions/models.Login'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.Token'
+        "400":
+          description: Bad Request
+          schema:
+            type: Invalid
+        "401":
+          description: Unauthorized
+          schema:
+            type: Invalid
+        "404":
+          description: Not Found
+          schema:
+            type: User
+      tags:
+      - Login
+  /api/v1/logs:
+    get:
+      description: Gets a list of log files
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/models.Logfile'
+            type: array
+      summary: Gets a list of log files
+      tags:
+      - Logs
+  /api/v1/mqtt:
+    get:
+      consumes:
+      - application/json
+      description: Get all MQTT Settings
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.MQTTSettings'
+        "401":
+          description: Request not authorized
+        "404":
+          description: Not Found
+          schema:
+            type: "No"
+      tags:
+      - MQTT
+    post:
+      consumes:
+      - application/json
+      description: Creates a MQTT Setting
+      parameters:
+      - description: Authentication header
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      - description: Add MQQT Setting
+        in: body
+        name: type
+        required: true
+        schema:
+          $ref: '#/definitions/models.MQTTSettings'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.MQTTSettings'
+        "400":
+          description: Bad Request
+          schema:
+            type: Missing
+        "401":
+          description: Request not authorized
+      tags:
+      - MQTT
+  /api/v1/mqtt/{id}:
+    delete:
+      description: Deletes a MQTT Setting
+      parameters:
+      - description: Authentication header
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      - description: MQTT Setting ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.MQTTSettings'
+        "401":
+          description: Request not authorized
+        "422":
+          description: Unprocessable Entity
+          schema:
+            type: Cannot
+      tags:
+      - MQTT
+  /api/v1/mqttstatus:
+    get:
+      consumes:
+      - application/json
+      description: Get MQTT Status
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.MQTTSettings'
+        "401":
+          description: Request not authorized
+        "404":
+          description: Not Found
+          schema:
+            type: "No"
+      tags:
+      - MQTT
+  /api/v1/plc:
+    post:
+      consumes:
+      - application/json
+      description: Creates a PLC
+      parameters:
+      - description: Authentication header
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      - description: Add PLC
+        in: body
+        name: type
+        required: true
+        schema:
+          $ref: '#/definitions/modelsswagger.PLC'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.PLC'
+        "400":
+          description: Bad Request
+          schema:
+            type: Missing
+        "401":
+          description: Request not authorized
+      summary: Creates a PLC
+      tags:
+      - PLCs
+  /api/v1/plc/{id}:
+    delete:
+      description: Deletes a PLC
+      parameters:
+      - description: Authentication header
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      - description: PLC ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.PLC'
+        "401":
+          description: Request not authorized
+        "422":
+          description: Unprocessable Entity
+          schema:
+            type: Cannot
+      summary: Deletes a PLC
+      tags:
+      - PLCs
+    get:
+      consumes:
+      - application/json
+      description: Get PLC by ID
+      parameters:
+      - description: Authentication header
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      - description: PLC ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.PLC'
+        "401":
+          description: Request not authorized
+        "404":
+          description: Not Found
+          schema:
+            type: "No"
+      summary: Get PLC by ID
+      tags:
+      - PLCs
+  /api/v1/plcs:
+    get:
+      consumes:
+      - application/json
+      description: Get all PLCs
+      parameters:
+      - description: Authentication header
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.PLC'
+        "401":
+          description: Request not authorized
+        "404":
+          description: Not Found
+          schema:
+            type: "No"
+      summary: Get all PLCs
+      tags:
+      - PLCs
+  /api/v1/protocol:
+    post:
+      consumes:
+      - application/json
+      description: Creates a protocol
+      parameters:
+      - description: Authentication header
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      - description: Add protocol
+        in: body
+        name: type
+        required: true
+        schema:
+          $ref: '#/definitions/modelsswagger.Protocol'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.Protocol'
+        "400":
+          description: Bad Request
+          schema:
+            type: Missing
+        "401":
+          description: Request not authorized
+      tags:
+      - Protocols
+  /api/v1/protocol/{id}:
+    delete:
+      description: Deletes a protocol
+      parameters:
+      - description: Authentication header
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      - description: Protocol ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.Protocol'
+        "401":
+          description: Request not authorized
+        "422":
+          description: Unprocessable Entity
+          schema:
+            type: Cannot
+      tags:
+      - Protocols
+    get:
+      consumes:
+      - application/json
+      description: Get protocol by ID
+      parameters:
+      - description: Authentication header
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      - description: Protocol ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.Protocol'
+        "401":
+          description: Request not authorized
+        "404":
+          description: Not Found
+          schema:
+            type: "No"
+      tags:
+      - Protocols
+  /api/v1/protocol/{protocol}:
+    get:
+      consumes:
+      - application/json
+      description: Get protocol by name
+      parameters:
+      - description: Protocol ID
+        in: path
+        name: protocol
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.Protocol'
+        "404":
+          description: Not Found
+          schema:
+            type: "No"
+      tags:
+      - Protocols
+    patch:
+      consumes:
+      - application/json
+      description: Updates a protocol
+      parameters:
+      - description: Add protocol
+        in: body
+        name: type
+        required: true
+        schema:
+          $ref: '#/definitions/modelsswagger.Protocol'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.Protocol'
+        "400":
+          description: Bad Request
+          schema:
+            type: Missing
+      tags:
+      - Protocols
+  /api/v1/protocols:
+    get:
+      consumes:
+      - application/json
+      description: Get all protocols
+      parameters:
+      - description: Authentication header
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.Protocol'
+        "401":
+          description: Request not authorized
+        "404":
+          description: Not Found
+          schema:
+            type: "No"
+      tags:
+      - Protocols
+    post:
+      consumes:
+      - application/json
+      description: Creates a protocol
+      parameters:
+      - description: Authentication header
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      - description: Add protocol
+        in: body
+        name: type
+        required: true
+        schema:
+          $ref: '#/definitions/modelsswagger.Protocol'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.Protocol'
+        "400":
+          description: Bad Request
+          schema:
+            type: Missing
+        "401":
+          description: Request not authorized
+      tags:
+      - Protocols
+  /api/v1/register:
+    post:
+      consumes:
+      - application/json
+      description: Add user
+      parameters:
+      - description: Authentication header
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      - description: User data
+        in: body
+        name: type
+        required: true
+        schema:
+          $ref: '#/definitions/models.User'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.User'
+        "400":
+          description: "Invalid\trequest"
+        "404":
+          description: User not registered
+        "409":
+          description: "User already\tregistered"
+      tags:
+      - Login
+  /api/v1/resources:
+    get:
+      description: Get resources used
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.Resources'
+      summary: Get resources used
+      tags:
+      - Resources
+    post:
+      consumes:
+      - application/json
+      description: Creates resources
+      parameters:
+      - description: Add resource info
+        in: body
+        name: type
+        required: true
+        schema:
+          $ref: '#/definitions/models.Resources'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.Resources'
+        "400":
+          description: Bad Request
+          schema:
+            type: Missing
+        "401":
+          description: Request not authorized
+      summary: Creates resources info
+      tags:
+      - Resources
+  /api/v1/server:
+    post:
+      consumes:
+      - application/json
+      description: Creates a server
+      parameters:
+      - description: Authentication header
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      - description: Add server
+        in: body
+        name: type
+        required: true
+        schema:
+          $ref: '#/definitions/modelsswagger.Server'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/modelsswagger.Server'
+        "400":
+          description: Bad Request
+          schema:
+            type: Missing
+        "401":
+          description: Request not authorized
+        "404":
+          description: Not Found
+          schema:
+            type: "No"
+      summary: Creates a server
+      tags:
+      - Servers
+  /api/v1/server/{id}:
+    delete:
+      description: Deletes a server
+      parameters:
+      - description: Authentication header
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      - description: Server ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.Server'
+        "401":
+          description: Request not authorized
+        "422":
+          description: Unprocessable Entity
+          schema:
+            type: Cannot
+      summary: Deletes a server
+      tags:
+      - Servers
+    get:
+      consumes:
+      - application/json
+      description: Get server by ID
+      parameters:
+      - description: Authentication header
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      - description: Server ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.Server'
+        "401":
+          description: Request not authorized
+        "404":
+          description: Not Found
+          schema:
+            type: "No"
+      summary: Get server by ID
+      tags:
+      - Servers
+  /api/v1/servers:
+    get:
+      consumes:
+      - application/json
+      description: Get all servers
+      parameters:
+      - description: Authentication header
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.Server'
+        "401":
+          description: Request not authorized
+        "404":
+          description: Not Found
+          schema:
+            type: "No"
+      summary: Get all servers
+      tags:
+      - Servers
+  /api/v1/type:
+    post:
+      consumes:
+      - application/json
+      description: Creates a type
+      parameters:
+      - description: Authentication header
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      - description: Add type
+        in: body
+        name: type
+        required: true
+        schema:
+          $ref: '#/definitions/modelsswagger.Type'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.Type'
+        "400":
+          description: Bad Request
+          schema:
+            type: Missing
+        "401":
+          description: Request not authorized
+      summary: Creates a type
+      tags:
+      - Types
+  /api/v1/type/{id}:
+    delete:
+      description: Deletes a type
+      parameters:
+      - description: Authentication header
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      - description: Type ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.Type'
+        "401":
+          description: Request not authorized
+        "422":
+          description: Unprocessable Entity
+          schema:
+            type: Cannot
+      summary: Deletes a type
+      tags:
+      - Types
+    get:
+      consumes:
+      - application/json
+      description: Get type by ID
+      parameters:
+      - description: Authentication header
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      - description: Type ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.Type'
+        "401":
+          description: Request not authorized
+        "404":
+          description: Not Found
+          schema:
+            type: "No"
+      summary: Get type by ID
+      tags:
+      - Types
+  /api/v1/types:
+    get:
+      consumes:
+      - application/json
+      description: Get all types
+      parameters:
+      - description: Authentication header
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.Type'
+        "401":
+          description: Request not authorized
+        "404":
+          description: Not Found
+          schema:
+            type: "No"
+      summary: Get all types
+      tags:
+      - Types
+  /api/v1/user/{email}:
+    put:
+      consumes:
+      - application/json
+      description: Update user password
+      parameters:
+      - description: Authentication header
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      - description: User data
+        in: body
+        name: type
+        required: true
+        schema:
+          $ref: '#/definitions/models.User'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.User'
+        "400":
+          description: Bad Request
+          schema:
+            type: Invalid
+        "404":
+          description: Not Found
+          schema:
+            type: User
+      tags:
+      - Login
+  /api/v1/userdata/{id}:
+    patch:
+      consumes:
+      - application/json
+      description: Update user data (name, email and password)
+      parameters:
+      - description: Authentication header
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      - description: User data
+        in: body
+        name: type
+        required: true
+        schema:
+          $ref: '#/definitions/models.User'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.User'
+        "400":
+          description: Bad Request
+          schema:
+            type: Invalid
+        "404":
+          description: Not Found
+          schema:
+            type: User
+      tags:
+      - Login
+  /api/v1/version:
+    get:
+      consumes:
+      - application/json
+      description: Get data version
+      parameters:
+      - description: Authentication header
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.DataVersion'
+        "401":
+          description: Request not authorized
+        "404":
+          description: "No\tdevices\tfound"
+      security:
+      - BasicAuth: []
+      tags:
+      - DataVersion
+swagger: "2.0"

@@ -1,0 +1,272 @@
+{
+  "protocol": "canopen",
+  "alias": "CANopen(CIA301)",
+  "config": {
+    "devid": {
+      "name": "CAN-ID",
+      "name_es": "CAN-ID",
+      "name_pt": "CAN-ID",
+      "type": "string",
+      "requirements": []
+    },
+    "SDO": {
+      "name": "SDO",
+      "name_en": "(SDO)Svc Data Obj",
+      "name_pt": "(SDO)Obj Proc Servs",
+      "name_es": "(SDO)Obj Proc Servs",
+      "type": "array",
+      "requirements": [],
+      "contains": {
+        "type": "object",
+        "requirements": [],
+        "contains": {
+          "name": {
+            "name": "Node Name",
+            "type": "string",
+            "requirements": []
+          },
+          "canid": {
+            "name": "CAN-ID",
+            "name_es": "CAN-ID",
+            "name_pt": "CAN-ID",
+            "type": "string",
+            "requirements": []
+          },
+          "nodeid": {
+            "name": "NodeID",
+            "name_es": "Id en el",
+            "name_pt": "Id de Nó",
+            "type": "int",
+            "requirements": []
+          },
+          "cmd": {
+            "name": "Command",
+            "name_es": "Dominio",
+            "name_pt": "Comando",
+            "type": "int",
+            "requirements": []
+          },
+          "objIndex": {
+            "name": "Object-Index",
+            "name_es": "Índice-Objeto",
+            "name_pt": "Indice-Objeto",
+            "type": "int",
+            "requirements": []
+          },
+          "subIndex": {
+            "name": "Sub-Index",
+            "name_es": "Sub-Índice",
+            "name_pt": "Sub-Índice",
+            "type": "int",
+            "requirements": []
+          }
+        }
+      }
+    },
+    "PDO": {
+      "name": "PDO",
+      "name_en": "(PDO)Proc Data Obj",
+      "name_pt": "(PDO)Obj Proc Dados",
+      "name_es": "(PDO)Obj Proc Dados",
+      "type": "array",
+      "requirements": [],
+      "contains": {
+        "type": "object",
+        "requirements": [],
+        "contains": {
+          "name": {
+            "name": "Node Name",
+            "name_es": "Nome do nó",
+            "name_pt": "Nombre del Node",
+            "type": "string",
+            "requirements": []
+          },
+          "canid": {
+            "name": "CAN-ID",
+            "name_es": "CAN-ID",
+            "name_pt": "CAN-ID",
+            "type": "string",
+            "requirements": []
+          },
+          "nodeid": {
+            "name": "NodeID",
+            "name_es": "ID do Nó",
+            "name_pt": "Id do Nó",
+            "type": "int",
+            "requirements": []
+          },
+          "mapping": {
+            "name": "Mapping",
+            "name_es": "Mapeamento",
+            "name_pt": "Cartografía",
+            "type": "object",
+            "requirements": [],
+            "contains": {
+              "objIndex": {
+                "name": "Obj-Index",
+                "name_es": "Índice-Objeto",
+                "name_pt": "Índice-Objeto",
+                "type": "int",
+                "requirements": []
+              },
+              "subIndex": {
+                "name": "Sub-Index",
+                "name_es": "Sub-Índice",
+                "name_pt": "Sub-Índice",
+                "type": "int",
+                "requirements": []
+              }
+            }
+          }
+        }
+      }
+    },
+    "NMT": {
+      "name": "NMT",
+      "name_en": "(NMT)Nwk Magmt",
+      "name_pt": "(NMT)Ger Rede",
+      "name_es": "(NMT)Ger Rede",
+      "type": "array",
+      "requirements": [],
+      "contains": {
+        "type": "object",
+        "requirements": [],
+        "contains": {
+          "name": {
+            "name": "Node Name",
+            "name_es": "Nome do nó",
+            "name_pt": "Nombre del Node",
+            "type": "string",
+            "requirements": []
+          },
+          "canid": {
+            "name": "CAN-ID",
+            "name_es": "CAN-ID",
+            "name_pt": "CAN-ID",
+            "type": "string",
+            "requirements": []
+          },
+          "nodeid": {
+            "name": "NodeID",
+            "name_es": "ID do Nó",
+            "name_pt": "Id do Nó",
+            "type": "int",
+            "requirements": []
+          },
+          "cmd": {
+            "name": "Command",
+            "name_es": "Dominio",
+            "name_pt": "Comando",
+            "type": "int",
+            "requirements": []
+          }
+        }
+      }
+    },
+    "SYNC": {
+      "name": "SYNC",
+      "name_en": "(SYNC)Sinc",
+      "name_pt": "(SYNC)Sinc",
+      "name_es": "(SYNC)Sinc",
+      "type": "array",
+      "requirements": [],
+      "contains": {
+        "type": "object",
+        "requirements": [],
+        "contains": {
+          "name": {
+            "name": "Node Name",
+            "name_es": "Nome do nó",
+            "name_pt": "Nombre del Node",
+            "type": "string",
+            "requirements": []
+          },
+          "canid": {
+            "name": "CAN-ID",
+            "name_es": "CAN-ID",
+            "name_pt": "CAN-ID",
+            "type": "string",
+            "requirements": []
+          },
+          "nodeid": {
+            "name": "NodeID",
+            "name_es": "ID do Nó",
+            "name_pt": "Id do Nó",
+            "type": "int",
+            "requirements": []
+          }
+        }
+      }
+    },
+    "TIME": {
+      "name": "CANopen TIME",
+      "name_en": "(TIME)DateTime",
+      "name_pt": "(TIME)Data/Hora",
+      "name_es": "(TIME)Data/Hora",
+      "type": "array",
+      "requirements": [],
+      "contains": {
+        "type": "object",
+        "requirements": [],
+        "contains": {
+          "name": {
+            "name": "Node Name",
+            "name_es": "Nome do nó",
+            "name_pt": "Nombre del Node",
+            "type": "string",
+            "requirements": []
+          },
+          "canid": {
+            "name": "CAN-ID",
+            "name_es": "CAN-ID",
+            "name_pt": "CAN-ID",
+            "type": "string",
+            "requirements": []
+          },
+          "nodeid": {
+            "name": "NodeID",
+            "name_es": "ID do Nó",
+            "name_pt": "Id do Nó",
+            "type": "int",
+            "requirements": []
+          }
+        }
+      }
+    },
+    "EMCY": {
+      "name": "EMCY",
+      "name_en": "(EMCY)Emgcy.",
+      "name_pt": "(EMCY)Emerg.",
+      "name_es": "(EMCY)Emerg.",
+      "type": "array",
+      "requirements": [],
+      "contains": {
+        "type": "object",
+        "requirements": [],
+        "contains": {
+          "name": {
+            "name": "Node Name",
+            "name_es": "Nome do nó",
+            "name_pt": "Nombre del Node",
+            "type": "string",
+            "requirements": []
+          },
+          "canid": {
+            "name": "CAN-ID",
+            "name_es": "CAN-ID",
+            "name_pt": "CAN-ID",
+            "type": "string",
+            "requirements": []
+          },
+          "nodeid": {
+            "name": "NodeID",
+            "name_es": "ID do Nó",
+            "name_pt": "Id do Nó",
+            "type": "int",
+            "requirements": []
+          }
+        }
+      }
+    }
+  }
+}

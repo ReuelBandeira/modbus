@@ -1,0 +1,9 @@
+*.log
+*.log.gz
+*.exe
+*.zip
+*.db
+*.db-journal
+gwisi40server
+
+web/*

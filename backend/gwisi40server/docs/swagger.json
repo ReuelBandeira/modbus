@@ -1,0 +1,2160 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "description": "ISI 4.0 server API",
+        "title": "ISI 4.0 server API",
+        "contact": {
+            "name": "ICTS",
+            "url": "http://www.grupoicts.com.br"
+        },
+        "license": {
+            "name": "Proprietary"
+        },
+        "version": "1.0"
+    },
+    "paths": {
+        "/api/v1/condifgurations/{id}": {
+            "patch": {
+                "description": "Updates a configuration",
+                "tags": [
+                    "Configurations"
+                ],
+                "summary": "Updates a configuration",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "Authentication header",
+                        "name": "Authorization",
+                        "in": "header",
+                        "required": true
+                    },
+                    {
+                        "type": "integer",
+                        "description": "Device ID",
+                        "name": "id",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/models.Configurations"
+                        }
+                    },
+                    "401": {
+                        "description": "Request not authorized"
+                    },
+                    "422": {
+                        "description": "Unprocessable Entity",
+                        "schema": {
+                            "type": "Cannot"
+                        }
+                    }
+                }
+            }
+        },
+        "/api/v1/configurationbyprotocol/{protocol}": {
+            "get": {
+                "description": "Get all Configurations",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Configurations"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/models.Configurations"
+                        }
+                    },
+                    "401": {
+                        "description": "Request not authorized"
+                    },
+                    "404": {
+                        "description": "Not Found",
+                        "schema": {
+                            "type": "No"
+                        }
+                    }
+                }
+            }
+        },
+        "/api/v1/configurationcount": {
+            "get": {
+                "description": "Get device count",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Configurations"
+                ],
+                "summary": "Get device count",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/models.Configurations"
+                        }
+                    }
+                }
+            }
+        },
+        "/api/v1/configurations": {
+            "get": {
+                "description": "Get all Configurations",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Configurations"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/models.Configurations"
+                        }
+                    },
+                    "401": {
+                        "description": "Request not authorized"
+                    },
+                    "404": {
+                        "description": "Not Found",
+                        "schema": {
+                            "type": "No"
+                        }
+                    }
+                }
+            },
+            "post": {
+                "description": "Creates a Configurations",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Configurations"
+                ],
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "Authentication header",
+                        "name": "Authorization",
+                        "in": "header",
+                        "required": true
+                    },
+                    {
+                        "description": "Add Configurations",
+                        "name": "type",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/models.Configurations"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/models.Configurations"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "type": "Missing"
+                        }
+                    },
+                    "401": {
+                        "description": "Request not authorized"
+                    }
+                }
+            }
+        },
+        "/api/v1/configurations/{id}": {
+            "delete": {
+                "description": "Deletes a configuration",
+                "tags": [
+                    "Configurations"
+                ],
+                "summary": "Deletes a configuration",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "Authentication header",
+                        "name": "Authorization",
+                        "in": "header",
+                        "required": true
+                    },
+                    {
+                        "type": "integer",
+                        "description": "Device ID",
+                        "name": "id",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/models.Configurations"
+                        }
+                    },
+                    "401": {
+                        "description": "Request not authorized"
+                    },
+                    "422": {
+                        "description": "Unprocessable Entity",
+                        "schema": {
+                            "type": "Cannot"
+                        }
+                    }
+                }
+            }
+        },
+        "/api/v1/configurationwithid": {
+            "get": {
+                "description": "Get all Configurations with ID",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Configurations"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/models.Configurations"
+                        }
+                    },
+                    "404": {
+                        "description": "Not Found",
+                        "schema": {
+                            "type": "No"
+                        }
+                    }
+                }
+            }
+        },
+        "/api/v1/device": {
+            "post": {
+                "description": "Creates a device",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Devices"
+                ],
+                "summary": "Creates a device",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "Authentication header",
+                        "name": "Authorization",
+                        "in": "header",
+                        "required": true
+                    },
+                    {
+                        "description": "Add device",
+                        "name": "type",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/modelsswagger.Device"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/models.Device"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "type": "Missing"
+                        }
+                    },
+                    "401": {
+                        "description": "Request not authorized"
+                    },
+                    "404": {
+                        "description": "No\t\tprotocol, type or PLC found or invalid values for name, port, memory block, class, instance or attribute"
+                    }
+                }
+            }
+        },
+        "/api/v1/device/{id}": {
+            "get": {
+                "description": "Get device by ID",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Devices"
+                ],
+                "summary": "Get device by ID",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "Authentication header",
+                        "name": "Authorization",
+                        "in": "header",
+                        "required": true
+                    },
+                    {
+                        "type": "integer",
+                        "description": "Device ID",
+                        "name": "id",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/models.Device"
+                        }
+                    },
+                    "401": {
+                        "description": "Request not authorized"
+                    },
+                    "404": {
+                        "description": "No\t\t\tdevice found"
+                    }
+                }
+            },
+            "delete": {
+                "description": "Deletes a device",
+                "tags": [
+                    "Devices"
+                ],
+                "summary": "Deletes a device",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "Authentication header",
+                        "name": "Authorization",
+                        "in": "header",
+                        "required": true
+                    },
+                    {
+                        "type": "integer",
+                        "description": "Device ID",
+                        "name": "id",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/models.Device"
+                        }
+                    },
+                    "401": {
+                        "description": "Request not authorized"
+                    },
+                    "422": {
+                        "description": "Unprocessable Entity",
+                        "schema": {
+                            "type": "Cannot"
+                        }
+                    }
+                }
+            }
+        },
+        "/api/v1/deviceinfo": {
+            "get": {
+                "description": "Get device count",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Configurations"
+                ],
+                "summary": "Get device count",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/models.Configurations"
+                        }
+                    }
+                }
+            }
+        },
+        "/api/v1/devices": {
+            "get": {
+                "security": [
+                    {
+                        "BasicAuth": []
+                    }
+                ],
+                "description": "Get all devices",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Devices"
+                ],
+                "summary": "Get all devices",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "Authentication header",
+                        "name": "Authorization",
+                        "in": "header",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/models.Device"
+                        }
+                    },
+                    "401": {
+                        "description": "Request not authorized"
+                    },
+                    "404": {
+                        "description": "No\tdevices\tfound"
+                    }
+                }
+            }
+        },
+        "/api/v1/language": {
+            "get": {
+                "description": "Get all language",
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "language"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/models.Language"
+                        }
+                    },
+                    "401": {
+                        "description": "Request not authorized"
+                    },
+                    "404": {
+                        "description": "Not Found",
+                        "schema": {
+                            "type": "No"
+                        }
+                    }
+                }
+            }
+        },
+        "/api/v1/logfile/{id}": {
+            "get": {
+                "description": "Download a log file",
+                "tags": [
+                    "Logs"
+                ],
+                "summary": "Download a log file",
+                "responses": {}
+            }
+        },
+        "/api/v1/logfiles": {
+            "get": {
+                "description": "Download all log files",
+                "tags": [
+                    "Logs"
+                ],
+                "summary": "Download all log files",
+                "responses": {}
+            }
+        },
+        "/api/v1/login": {
+            "post": {
+                "description": "Login",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Login"
+                ],
+                "parameters": [
+                    {
+                        "description": "Login credentials",
+                        "name": "type",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/models.Login"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/models.Token"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "type": "Invalid"
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized",
+                        "schema": {
+                            "type": "Invalid"
+                        }
+                    },
+                    "404": {
+                        "description": "Not Found",
+                        "schema": {
+                            "type": "User"
+                        }
+                    }
+                }
+            }
+        },
+        "/api/v1/logs": {
+            "get": {
+                "description": "Gets a list of log files",
+                "tags": [
+                    "Logs"
+                ],
+                "summary": "Gets a list of log files",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/models.Logfile"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/v1/mqtt": {
+            "get": {
+                "description": "Get all MQTT Settings",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "MQTT"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/models.MQTTSettings"
+                        }
+                    },
+                    "401": {
+                        "description": "Request not authorized"
+                    },
+                    "404": {
+                        "description": "Not Found",
+                        "schema": {
+                            "type": "No"
+                        }
+                    }
+                }
+            },
+            "post": {
+                "description": "Creates a MQTT Setting",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "MQTT"
+                ],
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "Authentication header",
+                        "name": "Authorization",
+                        "in": "header",
+                        "required": true
+                    },
+                    {
+                        "description": "Add MQQT Setting",
+                        "name": "type",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/models.MQTTSettings"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/models.MQTTSettings"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "type": "Missing"
+                        }
+                    },
+                    "401": {
+                        "description": "Request not authorized"
+                    }
+                }
+            }
+        },
+        "/api/v1/mqtt/{id}": {
+            "delete": {
+                "description": "Deletes a MQTT Setting",
+                "tags": [
+                    "MQTT"
+                ],
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "Authentication header",
+                        "name": "Authorization",
+                        "in": "header",
+                        "required": true
+                    },
+                    {
+                        "type": "integer",
+                        "description": "MQTT Setting ID",
+                        "name": "id",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/models.MQTTSettings"
+                        }
+                    },
+                    "401": {
+                        "description": "Request not authorized"
+                    },
+                    "422": {
+                        "description": "Unprocessable Entity",
+                        "schema": {
+                            "type": "Cannot"
+                        }
+                    }
+                }
+            }
+        },
+        "/api/v1/mqttstatus": {
+            "get": {
+                "description": "Get MQTT Status",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "MQTT"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/models.MQTTSettings"
+                        }
+                    },
+                    "401": {
+                        "description": "Request not authorized"
+                    },
+                    "404": {
+                        "description": "Not Found",
+                        "schema": {
+                            "type": "No"
+                        }
+                    }
+                }
+            }
+        },
+        "/api/v1/plc": {
+            "post": {
+                "description": "Creates a PLC",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "PLCs"
+                ],
+                "summary": "Creates a PLC",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "Authentication header",
+                        "name": "Authorization",
+                        "in": "header",
+                        "required": true
+                    },
+                    {
+                        "description": "Add PLC",
+                        "name": "type",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/modelsswagger.PLC"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/models.PLC"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "type": "Missing"
+                        }
+                    },
+                    "401": {
+                        "description": "Request not authorized"
+                    }
+                }
+            }
+        },
+        "/api/v1/plc/{id}": {
+            "get": {
+                "description": "Get PLC by ID",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "PLCs"
+                ],
+                "summary": "Get PLC by ID",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "Authentication header",
+                        "name": "Authorization",
+                        "in": "header",
+                        "required": true
+                    },
+                    {
+                        "type": "integer",
+                        "description": "PLC ID",
+                        "name": "id",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/models.PLC"
+                        }
+                    },
+                    "401": {
+                        "description": "Request not authorized"
+                    },
+                    "404": {
+                        "description": "Not Found",
+                        "schema": {
+                            "type": "No"
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "description": "Deletes a PLC",
+                "tags": [
+                    "PLCs"
+                ],
+                "summary": "Deletes a PLC",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "Authentication header",
+                        "name": "Authorization",
+                        "in": "header",
+                        "required": true
+                    },
+                    {
+                        "type": "integer",
+                        "description": "PLC ID",
+                        "name": "id",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/models.PLC"
+                        }
+                    },
+                    "401": {
+                        "description": "Request not authorized"
+                    },
+                    "422": {
+                        "description": "Unprocessable Entity",
+                        "schema": {
+                            "type": "Cannot"
+                        }
+                    }
+                }
+            }
+        },
+        "/api/v1/plcs": {
+            "get": {
+                "description": "Get all PLCs",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "PLCs"
+                ],
+                "summary": "Get all PLCs",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "Authentication header",
+                        "name": "Authorization",
+                        "in": "header",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/models.PLC"
+                        }
+                    },
+                    "401": {
+                        "description": "Request not authorized"
+                    },
+                    "404": {
+                        "description": "Not Found",
+                        "schema": {
+                            "type": "No"
+                        }
+                    }
+                }
+            }
+        },
+        "/api/v1/protocol": {
+            "post": {
+                "description": "Creates a protocol",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Protocols"
+                ],
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "Authentication header",
+                        "name": "Authorization",
+                        "in": "header",
+                        "required": true
+                    },
+                    {
+                        "description": "Add protocol",
+                        "name": "type",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/modelsswagger.Protocol"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/models.Protocol"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "type": "Missing"
+                        }
+                    },
+                    "401": {
+                        "description": "Request not authorized"
+                    }
+                }
+            }
+        },
+        "/api/v1/protocol/{id}": {
+            "get": {
+                "description": "Get protocol by ID",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Protocols"
+                ],
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "Authentication header",
+                        "name": "Authorization",
+                        "in": "header",
+                        "required": true
+                    },
+                    {
+                        "type": "integer",
+                        "description": "Protocol ID",
+                        "name": "id",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/models.Protocol"
+                        }
+                    },
+                    "401": {
+                        "description": "Request not authorized"
+                    },
+                    "404": {
+                        "description": "Not Found",
+                        "schema": {
+                            "type": "No"
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "description": "Deletes a protocol",
+                "tags": [
+                    "Protocols"
+                ],
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "Authentication header",
+                        "name": "Authorization",
+                        "in": "header",
+                        "required": true
+                    },
+                    {
+                        "type": "integer",
+                        "description": "Protocol ID",
+                        "name": "id",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/models.Protocol"
+                        }
+                    },
+                    "401": {
+                        "description": "Request not authorized"
+                    },
+                    "422": {
+                        "description": "Unprocessable Entity",
+                        "schema": {
+                            "type": "Cannot"
+                        }
+                    }
+                }
+            }
+        },
+        "/api/v1/protocol/{protocol}": {
+            "get": {
+                "description": "Get protocol by name",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Protocols"
+                ],
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "Protocol ID",
+                        "name": "protocol",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/models.Protocol"
+                        }
+                    },
+                    "404": {
+                        "description": "Not Found",
+                        "schema": {
+                            "type": "No"
+                        }
+                    }
+                }
+            },
+            "patch": {
+                "description": "Updates a protocol",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Protocols"
+                ],
+                "parameters": [
+                    {
+                        "description": "Add protocol",
+                        "name": "type",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/modelsswagger.Protocol"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/models.Protocol"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "type": "Missing"
+                        }
+                    }
+                }
+            }
+        },
+        "/api/v1/protocols": {
+            "get": {
+                "description": "Get all protocols",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Protocols"
+                ],
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "Authentication header",
+                        "name": "Authorization",
+                        "in": "header",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/models.Protocol"
+                        }
+                    },
+                    "401": {
+                        "description": "Request not authorized"
+                    },
+                    "404": {
+                        "description": "Not Found",
+                        "schema": {
+                            "type": "No"
+                        }
+                    }
+                }
+            },
+            "post": {
+                "description": "Creates a protocol",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Protocols"
+                ],
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "Authentication header",
+                        "name": "Authorization",
+                        "in": "header",
+                        "required": true
+                    },
+                    {
+                        "description": "Add protocol",
+                        "name": "type",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/modelsswagger.Protocol"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/models.Protocol"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "type": "Missing"
+                        }
+                    },
+                    "401": {
+                        "description": "Request not authorized"
+                    }
+                }
+            }
+        },
+        "/api/v1/register": {
+            "post": {
+                "description": "Add user",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Login"
+                ],
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "Authentication header",
+                        "name": "Authorization",
+                        "in": "header",
+                        "required": true
+                    },
+                    {
+                        "description": "User data",
+                        "name": "type",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/models.User"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/models.User"
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid\trequest"
+                    },
+                    "404": {
+                        "description": "User not registered"
+                    },
+                    "409": {
+                        "description": "User already\tregistered"
+                    }
+                }
+            }
+        },
+        "/api/v1/resources": {
+            "get": {
+                "description": "Get resources used",
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Resources"
+                ],
+                "summary": "Get resources used",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/models.Resources"
+                        }
+                    }
+                }
+            },
+            "post": {
+                "description": "Creates resources",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Resources"
+                ],
+                "summary": "Creates resources info",
+                "parameters": [
+                    {
+                        "description": "Add resource info",
+                        "name": "type",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/models.Resources"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/models.Resources"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "type": "Missing"
+                        }
+                    },
+                    "401": {
+                        "description": "Request not authorized"
+                    }
+                }
+            }
+        },
+        "/api/v1/server": {
+            "post": {
+                "description": "Creates a server",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Servers"
+                ],
+                "summary": "Creates a server",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "Authentication header",
+                        "name": "Authorization",
+                        "in": "header",
+                        "required": true
+                    },
+                    {
+                        "description": "Add server",
+                        "name": "type",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/modelsswagger.Server"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/modelsswagger.Server"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "type": "Missing"
+                        }
+                    },
+                    "401": {
+                        "description": "Request not authorized"
+                    },
+                    "404": {
+                        "description": "Not Found",
+                        "schema": {
+                            "type": "No"
+                        }
+                    }
+                }
+            }
+        },
+        "/api/v1/server/{id}": {
+            "get": {
+                "description": "Get server by ID",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Servers"
+                ],
+                "summary": "Get server by ID",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "Authentication header",
+                        "name": "Authorization",
+                        "in": "header",
+                        "required": true
+                    },
+                    {
+                        "type": "integer",
+                        "description": "Server ID",
+                        "name": "id",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/models.Server"
+                        }
+                    },
+                    "401": {
+                        "description": "Request not authorized"
+                    },
+                    "404": {
+                        "description": "Not Found",
+                        "schema": {
+                            "type": "No"
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "description": "Deletes a server",
+                "tags": [
+                    "Servers"
+                ],
+                "summary": "Deletes a server",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "Authentication header",
+                        "name": "Authorization",
+                        "in": "header",
+                        "required": true
+                    },
+                    {
+                        "type": "integer",
+                        "description": "Server ID",
+                        "name": "id",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/models.Server"
+                        }
+                    },
+                    "401": {
+                        "description": "Request not authorized"
+                    },
+                    "422": {
+                        "description": "Unprocessable Entity",
+                        "schema": {
+                            "type": "Cannot"
+                        }
+                    }
+                }
+            }
+        },
+        "/api/v1/servers": {
+            "get": {
+                "description": "Get all servers",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Servers"
+                ],
+                "summary": "Get all servers",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "Authentication header",
+                        "name": "Authorization",
+                        "in": "header",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/models.Server"
+                        }
+                    },
+                    "401": {
+                        "description": "Request not authorized"
+                    },
+                    "404": {
+                        "description": "Not Found",
+                        "schema": {
+                            "type": "No"
+                        }
+                    }
+                }
+            }
+        },
+        "/api/v1/type": {
+            "post": {
+                "description": "Creates a type",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Types"
+                ],
+                "summary": "Creates a type",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "Authentication header",
+                        "name": "Authorization",
+                        "in": "header",
+                        "required": true
+                    },
+                    {
+                        "description": "Add type",
+                        "name": "type",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/modelsswagger.Type"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/models.Type"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "type": "Missing"
+                        }
+                    },
+                    "401": {
+                        "description": "Request not authorized"
+                    }
+                }
+            }
+        },
+        "/api/v1/type/{id}": {
+            "get": {
+                "description": "Get type by ID",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Types"
+                ],
+                "summary": "Get type by ID",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "Authentication header",
+                        "name": "Authorization",
+                        "in": "header",
+                        "required": true
+                    },
+                    {
+                        "type": "integer",
+                        "description": "Type ID",
+                        "name": "id",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/models.Type"
+                        }
+                    },
+                    "401": {
+                        "description": "Request not authorized"
+                    },
+                    "404": {
+                        "description": "Not Found",
+                        "schema": {
+                            "type": "No"
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "description": "Deletes a type",
+                "tags": [
+                    "Types"
+                ],
+                "summary": "Deletes a type",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "Authentication header",
+                        "name": "Authorization",
+                        "in": "header",
+                        "required": true
+                    },
+                    {
+                        "type": "integer",
+                        "description": "Type ID",
+                        "name": "id",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/models.Type"
+                        }
+                    },
+                    "401": {
+                        "description": "Request not authorized"
+                    },
+                    "422": {
+                        "description": "Unprocessable Entity",
+                        "schema": {
+                            "type": "Cannot"
+                        }
+                    }
+                }
+            }
+        },
+        "/api/v1/types": {
+            "get": {
+                "description": "Get all types",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Types"
+                ],
+                "summary": "Get all types",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "Authentication header",
+                        "name": "Authorization",
+                        "in": "header",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/models.Type"
+                        }
+                    },
+                    "401": {
+                        "description": "Request not authorized"
+                    },
+                    "404": {
+                        "description": "Not Found",
+                        "schema": {
+                            "type": "No"
+                        }
+                    }
+                }
+            }
+        },
+        "/api/v1/user/{email}": {
+            "put": {
+                "description": "Update user password",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Login"
+                ],
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "Authentication header",
+                        "name": "Authorization",
+                        "in": "header",
+                        "required": true
+                    },
+                    {
+                        "description": "User data",
+                        "name": "type",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/models.User"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/models.User"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "type": "Invalid"
+                        }
+                    },
+                    "404": {
+                        "description": "Not Found",
+                        "schema": {
+                            "type": "User"
+                        }
+                    }
+                }
+            }
+        },
+        "/api/v1/userdata/{id}": {
+            "patch": {
+                "description": "Update user data (name, email and password)",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Login"
+                ],
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "Authentication header",
+                        "name": "Authorization",
+                        "in": "header",
+                        "required": true
+                    },
+                    {
+                        "description": "User data",
+                        "name": "type",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/models.User"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/models.User"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "type": "Invalid"
+                        }
+                    },
+                    "404": {
+                        "description": "Not Found",
+                        "schema": {
+                            "type": "User"
+                        }
+                    }
+                }
+            }
+        },
+        "/api/v1/version": {
+            "get": {
+                "security": [
+                    {
+                        "BasicAuth": []
+                    }
+                ],
+                "description": "Get data version",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "DataVersion"
+                ],
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "Authentication header",
+                        "name": "Authorization",
+                        "in": "header",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/models.DataVersion"
+                        }
+                    },
+                    "401": {
+                        "description": "Request not authorized"
+                    },
+                    "404": {
+                        "description": "No\tdevices\tfound"
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "models.Configurations": {
+            "type": "object",
+            "properties": {
+                "address": {
+                    "type": "string"
+                },
+                "devices": {
+                    "type": "string"
+                },
+                "id": {
+                    "type": "integer"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "port": {
+                    "type": "string"
+                },
+                "protocol": {
+                    "type": "string"
+                },
+                "readingTime": {
+                    "type": "integer"
+                },
+                "topics": {
+                    "type": "string"
+                },
+                "version": {
+                    "type": "integer"
+                }
+            }
+        },
+        "models.DataVersion": {
+            "type": "object",
+            "properties": {
+                "data-type": {
+                    "type": "string"
+                },
+                "version": {
+                    "type": "integer"
+                }
+            }
+        },
+        "models.Device": {
+            "type": "object",
+            "properties": {
+                "address": {
+                    "type": "integer"
+                },
+                "attribute": {
+                    "type": "integer"
+                },
+                "class": {
+                    "type": "integer"
+                },
+                "id": {
+                    "type": "integer"
+                },
+                "instance": {
+                    "type": "integer"
+                },
+                "memoryBlock": {
+                    "type": "integer"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "plc": {
+                    "$ref": "#/definitions/models.PLC"
+                },
+                "protocol": {
+                    "$ref": "#/definitions/models.Protocol"
+                },
+                "type": {
+                    "$ref": "#/definitions/models.Type"
+                }
+            }
+        },
+        "models.Language": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "integer"
+                },
+                "language": {
+                    "type": "string"
+                }
+            }
+        },
+        "models.Logfile": {
+            "type": "object",
+            "properties": {
+                "date": {
+                    "type": "string"
+                },
+                "id": {
+                    "type": "integer"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "time": {
+                    "type": "string"
+                }
+            }
+        },
+        "models.Login": {
+            "type": "object",
+            "properties": {
+                "email": {
+                    "type": "string"
+                },
+                "password": {
+                    "type": "string"
+                }
+            }
+        },
+        "models.MQTTSettings": {
+            "type": "object",
+            "properties": {
+                "connected": {
+                    "type": "boolean"
+                },
+                "errorInfo": {
+                    "type": "string"
+                },
+                "inputInfo": {
+                    "type": "string"
+                },
+                "password": {
+                    "type": "string"
+                },
+                "port": {
+                    "type": "string"
+                },
+                "server": {
+                    "type": "string"
+                },
+                "statusDevice": {
+                    "type": "string"
+                },
+                "username": {
+                    "type": "string"
+                }
+            }
+        },
+        "models.PLC": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "integer"
+                },
+                "name": {
+                    "type": "string"
+                }
+            }
+        },
+        "models.Protocol": {
+            "type": "object",
+            "properties": {
+                "alias": {
+                    "type": "string"
+                },
+                "config": {
+                    "type": "string"
+                },
+                "id": {
+                    "type": "integer"
+                },
+                "md5": {
+                    "type": "string"
+                },
+                "protocol": {
+                    "type": "string"
+                },
+                "version": {
+                    "type": "integer"
+                }
+            }
+        },
+        "models.Resources": {
+            "type": "object",
+            "properties": {
+                "connectedDevices": {
+                    "type": "string"
+                },
+                "diskUsage": {
+                    "type": "number"
+                },
+                "memoryUsage": {
+                    "type": "number"
+                }
+            }
+        },
+        "models.Server": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "integer"
+                },
+                "ip": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "port": {
+                    "type": "integer"
+                },
+                "protocol": {
+                    "$ref": "#/definitions/models.Protocol"
+                }
+            }
+        },
+        "models.Token": {
+            "type": "object",
+            "properties": {
+                "token": {
+                    "type": "string"
+                }
+            }
+        },
+        "models.Type": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "integer"
+                },
+                "type": {
+                    "type": "string"
+                }
+            }
+        },
+        "models.User": {
+            "type": "object",
+            "properties": {
+                "email": {
+                    "type": "string"
+                },
+                "id": {
+                    "type": "integer"
+                },
+                "language": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "password": {
+                    "type": "array",
+                    "items": {
+                        "type": "integer"
+                    }
+                }
+            }
+        },
+        "modelsswagger.Device": {
+            "type": "object",
+            "properties": {
+                "address": {
+                    "type": "string"
+                },
+                "attribute": {
+                    "type": "string"
+                },
+                "class": {
+                    "type": "string"
+                },
+                "instance": {
+                    "type": "string"
+                },
+                "memoryBlock": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "plcid": {
+                    "type": "string"
+                },
+                "protocolID": {
+                    "type": "string"
+                },
+                "typeID": {
+                    "type": "string"
+                }
+            }
+        },
+        "modelsswagger.PLC": {
+            "type": "object",
+            "properties": {
+                "name": {
+                    "type": "string"
+                }
+            }
+        },
+        "modelsswagger.Protocol": {
+            "type": "object",
+            "properties": {
+                "protocol": {
+                    "type": "string"
+                }
+            }
+        },
+        "modelsswagger.Server": {
+            "type": "object",
+            "properties": {
+                "ip": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "port": {
+                    "type": "string"
+                },
+                "protocolID": {
+                    "type": "string"
+                }
+            }
+        },
+        "modelsswagger.Type": {
+            "type": "object",
+            "properties": {
+                "type": {
+                    "type": "string"
+                }
+            }
+        }
+    }
+}

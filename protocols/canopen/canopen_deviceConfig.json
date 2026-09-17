@@ -1,0 +1,73 @@
+[
+	{
+		"devices": [
+			{
+				"id": 6,
+				"address": "192.168.18.2",
+				"port": "40000",
+				"name": "CANOPEN_TCP",
+				"status": false,
+				"protocol": "canopen",
+				"readingTime": 5000,
+				"topics": [
+					"canopen"
+				],
+				"data": [
+					{
+						"EMCY": [
+							{
+								"canid": "0x400",
+								"name": "EMCY0",
+								"nodeid": 1
+							}
+						],
+						"NMT": [
+							{
+								"canid": "0x780",
+								"cmd": 22,
+								"name": "NMT0",
+								"nodeid": 2
+							}
+						],
+						"PDO": [
+							{
+								"canid": "0x180",
+								"mapping": {
+									"objIndex": 2,
+									"subIndex": 3
+								},
+								"name": "PDO0",
+								"nodeid": 4
+							}
+						],
+						"SDO": [
+							{
+								"canid": "0x580",
+								"cmd": 1,
+								"name": "SDO0",
+								"nodeid": 5,
+								"objIndex": 6,
+								"subIndex": 7
+							}
+						],
+						"SYNC": [
+							{
+								"canid": "0xB00",
+								"name": "SYNC0",
+								"nodeid": 10
+							}
+						],
+						"TIME": [
+							{
+								"canid": "0xC00",
+								"name": "TIME0",
+								"nodeid": 11
+							}
+						],
+						"devid": "9A0"
+					}
+				]
+			}
+		]
+	}
+]

@@ -1,0 +1,10 @@
+*.exe~
+*.exe
+*.bat
+# TODO: Add Here your protocol name
+canopen
+*.log*
+deviceConfig.json
+
+
+

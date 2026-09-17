@@ -1,0 +1,100 @@
+{
+    "protocol": "ethernetip",
+    "alias": "Ethernet/IP",
+      "config": {
+        "bitMemories": {
+          "name": "Bit Memories",
+          "name_pt": "Memorias bit",
+          "name_es": "Memories bities",
+        "type": "array",
+          "requirements": [],
+          "contains": {
+            "type": "object",
+            "requirements": [],
+            "contains": {
+              "class": {
+                "name": "Class",
+                "name_pt": "Classe",
+                "name_es": "Clase",
+                "type": "int",
+                "max": 65535,
+                "min":1,
+                "requirements": ["nonNull"]
+              },
+              "instance": {
+                "name": "Instance",
+                "name_pt": "Instancia",
+                "name_es": "Instancia",
+                "type": "int",
+                "max": 65535,
+                "min":1,
+                "requirements": ["nonNull"]
+              },
+              "attribute": {
+                "name": "Attribute",
+                "name_pt": "Atributo",
+                "name_es": "Atributo",
+                "type": "int",
+                "max": 65535,
+                "min":0,
+                "requirements": ["nonNull"]
+              },			  
+              "name": {
+                "name": "Name",
+                "name_pt": "Nome",
+                "name_es": "Nombre",
+                "type": "string",
+                "requirements": ["nonNull"]
+              }              
+            }
+          }
+        },
+        "wordMemories": {
+          "name": "Word Memories",
+          "name_pt": "Memorias Word",
+          "name_es": "Memorias Word",
+          "type": "array",
+          "requirements": [],
+          "contains": {
+            "type": "object",
+            "requirements": [],
+           "contains": {
+              "class": {
+                "name": "Class",
+                "name_pt": "Classe",
+                "name_es": "Clase",
+                "type": "int",
+                "max": 65535,
+                "min":1,
+                "requirements": ["nonNull"]
+              },
+              "instance": {
+                "name": "Instance",
+                "name_pt": "Instancia",
+                "name_es": "Instancia",
+                "type": "int",
+                "max": 65535,
+                "min":1,
+                "requirements": ["nonNull"]
+              },
+              "attribute": {
+                "name": "Attribute",
+                "name_pt": "Atributo",
+                "name_es": "Atributo",
+                "type": "int",
+                "max": 65535,
+                "min":0,
+                "requirements": ["nonNull"]
+              },			  
+              "name": {
+                "name": "Name",
+                "name_pt": "Nome",
+                "name_es": "Nombre",
+                "type": "string",
+                "requirements": ["nonNull"]
+                }
+            }
+          }
+        }
+      }
+    }

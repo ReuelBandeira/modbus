@@ -1,0 +1,10 @@
+*.exe
+*.exe~
+*.bat
+# TODO: Add Here your protocol name
+newprotocol
+*.log*
+deviceConfig.json
+
+
+

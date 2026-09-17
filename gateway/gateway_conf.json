@@ -1,0 +1,18 @@
+{
+    "keepAlive": {
+        "interval": 0
+    },
+    "backend": {
+        "host": "http://localhost:8585/api/v1"
+    },
+    "protocols": {
+        "directory": "../protocols"
+    },
+    "log": {
+        "Filename": "gateway.log",
+        "MaxSize": 1,
+        "MaxBackups": 10,
+        "MaxAge": 28,
+        "Compress": true
+    }
+}

@@ -1,0 +1,7 @@
+*.log
+*.exe
+*.db
+gwisi40server/gwisi40server
+
+web/
+/.idea/

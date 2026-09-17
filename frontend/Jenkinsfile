@@ -1,0 +1,64 @@
+pipeline {
+    post {
+        failure {
+            updateGitlabCommitStatus name: 'build', state: 'failed'
+        }
+        success {
+            updateGitlabCommitStatus name: 'build', state: 'success'
+        }
+        aborted {
+            updateGitlabCommitStatus name: 'build', state: 'canceled'
+        }
+    }
+	
+    agent {
+        docker {
+          image 'instrumentisto/flutter'
+		  args '-u root -v $HOME/.pub-cache:/root/.pub-cache'
+        }	
+    }
+	
+    environment {
+        PROJECT_NAME = 'frontend'
+    }	
+	
+    stages {
+        stage('Checkout') {
+          steps {
+            checkout scm
+          }
+        }		
+        stage('Build') {
+            steps {
+                updateGitlabCommitStatus name: 'build', state: 'running'
+                sh "ls -l /usr/lib"
+                sh "printenv"
+                sh "echo '${env.WORKSPACE} ' =  ${env.WORKSPACE}"
+                sh "git config --global --add safe.directory ${env.WORKSPACE}"
+                sh "echo '${env.GIT_BRANCH} ' = ${env.GIT_BRANCH}"
+                sh "git checkout -f ${env.GIT_BRANCH}"
+                dir('isi_4_0') { // Change working directory to 'project'
+                    sh 'flutter doctor'
+                    sh 'flutter build web --web-renderer html'
+                }			
+            }
+        }
+		
+        stage('Test') {
+           steps {
+               dir('isi_4_0') { // Change working directory to 'project'
+                 // Add here the unit tests
+		         //  sh 'flutter test'
+               }
+           }
+        } 
+		
+        stage('Deploy') {
+            steps {
+                dir('isi_4_0') { // Change working directory to 'project'
+                  // Add here the Deploy 
+                }
+            }
+        }
+    }
+}

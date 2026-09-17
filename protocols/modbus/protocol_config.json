@@ -1,0 +1,84 @@
+{
+    "protocol": "modbus",
+    "alias": "Modbus TCP",
+    "config": {
+        "slaveId": {
+          "name": "Secondary ID",
+          "name_pt":"ID Secundario",
+          "name_es": "ID Secundario",
+          "type": "int",
+          "max": 255,
+          "min":1,
+          "requirements": ["nonNull"]
+        },        
+        "bitMemories": {
+          "name": "Bit Memories",
+          "name_pt":"Memorias BIT",
+          "name_es": "Memorias BIT",
+          "type": "array",
+          "min":0,
+          "requirements": [],
+          "contains": {
+            "type": "object",
+            "requirements": [],
+            "contains": {
+              "address": {
+                "name": "Address",
+                "name_pt":"Endereço",
+                "name_es": "Direccion",
+                "type": "int",
+                "max": 65535,
+                "min":0,
+                "requirements": ["nonNull"]
+              },
+              "name": {
+                "name": "Name",
+                "name_pt":"Nome",
+                "name_es": "Nombre",
+                "type": "string",
+                "min":0,
+                "requirements": ["nonNull"]
+              }              
+            }
+          }
+        },
+        "wordMemories": {
+          "name": "Word Memories",
+          "name_pt":"Memorias Word",
+          "name_es": "Memorias Word",
+          "type": "array",
+          "requirements": [],
+          "contains": {
+            "type": "object",
+            "requirements": [],
+            "contains": {
+                "format": {
+                  "name": "Format",
+                  "name_pt":"Formato",
+                  "name_es": "Formato",
+                  "type": "int",
+                  "min": 0,
+                  "requirements": ["nonNull"]
+                },
+                "address": {
+                  "name": "Address",
+                  "name_pt":"Endereço",
+                  "name_es": "Direccion",
+                  "type": "int",
+                  "max": 65535,
+                  "min": 0,
+                  "requirements": ["nonNull"]
+                },
+                "name": {
+                    "name": "Name",
+                    "name_pt":"Nome",
+                    "name_es": "Nombre",
+                    "type": "string",
+                    "min": 0,
+                    "requirements": ["nonNull"]
+                }
+            }
+          }
+        }
+    }
+}

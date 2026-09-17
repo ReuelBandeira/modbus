@@ -1,0 +1,189 @@
+{
+  "protocol": "newprotocol",
+  "alias": "newprotocol",
+  "config": {
+    "devid": {
+      "name": "DeviceID",
+      "name_es": "ID-Dispositivo",
+      "name_pt": "ID-Dispositivo",
+      "type": "int",
+      "requirements": []
+    },
+    "DI": {
+      "name": "DigitalInput",
+      "name_es": "EntradaDigital",
+      "name_pt": "EntradaDigital",
+      "type": "array",
+      "requirements": [],
+      "contains": {
+        "type": "object",
+        "requirements": [],
+        "contains": {
+          "format": {
+            "name": "Format",
+            "name_es": "Formato",
+            "name_pt": "Formato",
+            "type": "int",
+            "max": 64,
+            "min": 0,
+            "requirements": [
+              "nonNull"
+            ]
+          },
+          "address": {
+            "name": "Address",
+            "name_es": "Directión",
+            "name_pt": "Endereço",
+            "type": "int",
+            "max": 65535,
+            "min": 0,
+            "requirements": [
+              "nonNull"
+            ]
+          },
+          "name": {
+            "name": "Name",
+            "name": "Nome",
+            "name": "Nombre",
+            "type": "string",
+            "requirements": [
+              "nonNull"
+            ]
+          }
+        }
+      }
+    },
+    "DO": {
+      "name": "DigitalOutput",
+      "name_es": "SalidaDigital",
+      "name_pt": "SaídaDigital",
+      "type": "array",
+      "requirements": [],
+      "contains": {
+        "type": "object",
+        "requirements": [],
+        "contains": {
+          "format": {
+            "name": "Format",
+            "name_es": "Formato",
+            "name_pt": "Formato",
+            "type": "int",
+            "max": 64,
+            "min": 0,
+            "requirements": [
+              "nonNull"
+            ]
+          },
+          "address": {
+            "name": "Address",
+            "name_es": "Directión",
+            "name_pt": "Endereço",
+            "type": "int",
+            "max": 65535,
+            "min": 0,
+            "requirements": [
+              "nonNull"
+            ]
+          },
+          "name": {
+            "name": "Name",
+            "name_es": "Nome",
+            "name_pt": "Nombre",
+            "type": "string",
+            "requirements": [
+              "nonNull"
+            ]
+          }
+        }
+      }
+    },
+    "AI": {
+      "name": "AnalogInput",
+      "name": "EntradaAnalogica",
+      "name": "EntradaAnalogica",
+      "type": "array",
+      "requirements": [],
+      "contains": {
+        "type": "object",
+        "requirements": [],
+        "contains": {
+          "format": {
+            "name": "Format",
+            "name_es": "Formato",
+            "name_pt": "Formato",
+            "type": "int",
+            "max": 64,
+            "min": 0,
+            "requirements": [
+              "nonNull"
+            ]
+          },
+          "address": {
+            "name": "Address",
+            "name_es": "Directión",
+            "name_pt": "Endereço",
+            "type": "int",
+            "max": 65535,
+            "min": 0,
+            "requirements": [
+              "nonNull"
+            ]
+          },
+          "name": {
+            "name": "Name",
+            "name_es": "Nombre",
+            "name_pt": "Nome",
+            "type": "string",
+            "requirements": [
+              "nonNull"
+            ]
+          }
+        }
+      }
+    },
+    "AO": {
+      "name": "AnalogOutput",
+      "name_es": "SalidaAnalogica",
+      "name_pt": "SaídaAnalógica",
+      "type": "array",
+      "requirements": [],
+      "contains": {
+        "type": "object",
+        "requirements": [],
+        "contains": {
+          "format": {
+            "name": "Format",
+            "name_es": "Formato",
+            "name_pt": "Formato",
+            "type": "int",
+            "max": 64,
+            "min": 0,
+            "requirements": [
+              "nonNull"
+            ]
+          },
+          "address": {
+            "name": "Address",
+            "name_es": "Directión",
+            "name_pt": "Endereço",
+            "type": "int",
+            "max": 65535,
+            "min": 0,
+            "requirements": [
+              "nonNull"
+            ]
+          },
+          "name": {
+            "name": "Name",
+            "name_es": "Nombre",
+            "name_pt": "Nome",
+            "type": "string",
+            "requirements": [
+              "nonNull"
+            ]
+          }
+        }
+      }
+    }
+  }
+}

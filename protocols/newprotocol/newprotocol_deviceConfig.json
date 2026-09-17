@@ -1,0 +1,71 @@
+[
+	{
+		"devices": [
+			{
+				"id": 5,
+				"address": "192.168.18.2",
+				"port": "50000",
+				"name": "DEV1",
+				"status": false,
+				"protocol": "newprotocol",
+				"readingTime": 20000,
+				"topics": [
+					"newprotocol"
+				],
+				"data": [
+					{
+						"AI": [
+							{
+								"address": 1024,
+								"format": 16,
+								"name": "AI0"
+							},
+							{
+								"address": 1025,
+								"format": 16,
+								"name": "AI1"
+							}
+						],
+						"AO": [
+							{
+								"address": 1026,
+								"format": 16,
+								"name": "AO0"
+							},
+							{
+								"address": 1027,
+								"format": 16,
+								"name": "AO1"
+							}
+						],
+						"DI": [
+							{
+								"address": 1028,
+								"format": 1,
+								"name": "DI0"
+							},
+							{
+								"address": 1029,
+								"format": 1,
+								"name": "DI1"
+							}
+						],
+						"DO": [
+							{
+								"address": 1030,
+								"format": 1,
+								"name": "DO0"
+							},
+							{
+								"address": 1031,
+								"format": 1,
+								"name": "DO1"
+							}
+						],
+						"devid": 0
+					}
+				]
+			}
+		]
+	}
+]

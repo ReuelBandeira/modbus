@@ -1,0 +1,11 @@
+*.exe
+*.bat
+modbus
+*.log
+modbus
+**/modbus.log
+deviceConfig.json
+configMqtt.json
+*.swp
+modbus
+/.idea/

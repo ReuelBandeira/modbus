@@ -1,0 +1,44 @@
+pipeline {
+    post {
+        failure {
+            updateGitlabCommitStatus name: 'build', state: 'failed'
+        }
+        success {
+            updateGitlabCommitStatus name: 'build', state: 'success'
+        }
+        aborted {
+            updateGitlabCommitStatus name: 'build', state: 'canceled'
+        }
+    }
+
+    agent {
+        docker {
+            image 'golang:latest'
+            args '-u root' // This ensures that we're running as root in the container.
+        }
+    }
+    stages {
+        stage('Build') {
+            steps {
+                updateGitlabCommitStatus name: 'build', state: 'running'
+                sh "printenv"
+                sh "echo '${env.WORKSPACE} ' =  ${env.WORKSPACE}"
+                sh "git config --global --add safe.directory ${env.WORKSPACE}"
+                sh "echo '${env.GIT_BRANCH} ' = ${env.GIT_BRANCH}"
+                sh "git checkout -f ${env.GIT_BRANCH}"
+				sh "go build -buildvcs=false"
+            }
+        }
+      stage('Test') {
+          steps {
+             sh 'go test ./...'
+          }
+      }
+//      stage('Publish') {
+//          steps {
+//             sh 'echo "Publishing..."'
+//             // Adicione aqui os comandos para publicar o artefato gerado
+//          }
+//      }
+    }
+}
